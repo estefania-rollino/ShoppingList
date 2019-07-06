@@ -27,7 +27,7 @@ export class ItemsTableComponent implements OnInit {
     {
       _total += p.Price;
     });
-    return _total;
+    return _total.toPrecision(3);
   }
 
   sumSelectedItems()
@@ -40,7 +40,7 @@ export class ItemsTableComponent implements OnInit {
         _sum += p.Price;
       }
     })
-    return _sum;
+    return _sum.toPrecision(3);
 
   }
 

@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let p of productList; let i = index">
+      <tr *ngFor="let p of _list.values; let i = index">
         <td> {{i+1}}</td>
         <td>{{p.ProductName}}</td>
         <td>{{p.Price}}</td>
@@ -19,5 +19,7 @@
   </table>
 </div>
 <div class="row">
-<h3>Total: {{getTotal()}}</h3>
+<h3>All Items Total: {{getTotal()}}</h3>
+
+{{logger()}}
 </div>

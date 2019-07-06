@@ -1,8 +1,13 @@
 import { Item } from './item';
-export const itemList = 
-[
-    new Item('can tuna', 1.2, ""),
-    new Item('coffee', 4.99, "beans"),
+import { Injectable } from "@angular/core";
 
-    
-];
+
+@Injectable()
+export class itemList 
+{
+    values = [];
+    constructor()
+    {
+        this.values = [];
+    }
+}

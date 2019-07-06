@@ -1,0 +1,26 @@
+<div class="container">
+  <form #addItemForm="ngForm" (ngSubmit)="submit()" class="form">
+    <div class="form-group">
+      <label for="itemLabel">Item name:</label>
+      <input id="itemNameId" #itemName="ngModel" type="text" class="form-control" [(ngModel)]="ProductName" required
+        [ngModelOptions]="{standalone: true}" aria-describedby="New item title" placeholder="Enter item name">
+      <div *ngIf="itemName.invalid && (itemName.dirty || itemName.touched)" class="alert alert-danger">
+        <div *ngIf="itemName.errors.required">
+          Name is required.
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="form-group">
+        <label for="PriceLabel">Price:</label>
+        <input type="number" [(ngModel)]="Price" [ngModelOptions]="{standalone:true}" class="form-control"
+          id="PriceInput" aria-describedby="Price value" placeholder="Enter price value">
+      </div>
+    </div>
+    <div>
+      <button class="btn btn-success" type="submit"  [disabled]="!addItemForm.form.valid"> add new item</button>
+    </div>
+
+  </form>
+  <h5></h5>
+</div>

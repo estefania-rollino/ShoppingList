@@ -9,12 +9,12 @@ import { Item } from '../item';
 })
 export class ItemsTableComponent implements OnInit {
   
-  //productList = itemList;
-
+  private _checkedIndex: Array<number> = [];
   constructor(
     private _list: itemList
     ) 
-  { }
+  { 
+  }
 
   ngOnInit() {
   }
@@ -28,6 +28,20 @@ export class ItemsTableComponent implements OnInit {
       _total += p.Price;
     });
     return _total;
+  }
+
+  sumSelectedItems()
+  {
+    let _sum = 0.0;
+        
+    this._list.values.forEach((p: Item) =>
+    {
+      if(p.Checked){
+        _sum += p.Price;
+      }
+    })
+    return _sum;
+
   }
 
   logger()

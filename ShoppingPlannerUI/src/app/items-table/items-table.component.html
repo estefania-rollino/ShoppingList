@@ -1,0 +1,23 @@
+<div class="row">
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of productList; let i = index">
+        <td> {{i+1}}</td>
+        <td>{{p.ProductName}}</td>
+        <td>{{p.Price}}</td>
+        <td>{{p.Description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+<h3>Total: {{getTotal()}}</h3>
+</div>

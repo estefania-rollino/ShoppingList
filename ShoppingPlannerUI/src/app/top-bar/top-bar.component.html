@@ -1,20 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a [routerLink]="['/']" class="navbar-brand" >Shopping List</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/']">Add item</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Save list</a>
-      </li>
-     
-    </ul>
-   
+<nav class="navbar navbar-dark bg-dark">
+  <a [routerLink]="['home']" class="navbar-brand">Shopping List</a>
+  <div class="btn-toolbar" id="toolbar">
+    <a [routerLink]="['item/add']" class="navbar-brand">
+      <button class="btn" type="button">
+        <span class="fa fa-plus-circle" id="addbtn"></span>
+      </button>
+    </a>
+    <button class="btn" type="button">
+      <span class="fa fa-floppy-o" id="savebtn"></span>
+    </button>
   </div>
+
 </nav>
-
-

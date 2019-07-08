@@ -8,6 +8,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ItemsTableComponent } from './items-table/items-table.component';
 import { CreateItemComponent } from './create-item/create-item.component';
 import { itemList } from './item-list';
+import { Item } from './item';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,10 @@ import { itemList } from './item-list';
     FormsModule
 
   ],
-  providers: [itemList],
+  providers: [
+    itemList,
+    // Item
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="itemsList.values.length > 0">
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
@@ -7,26 +7,34 @@
         <th scope="col">Name</th>
         <th scope="col">Price</th>
         <th scope="col">Description</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
 
-      <tr *ngFor="let p of _list.values; let i = index">
+      <tr *ngFor="let p of itemsList.values; let i = index">
           <td> <input type="checkbox" [(ngModel)]='p.Checked' ></td>
         <td> {{i+1}}</td>
         <td>{{p.ProductName}}</td>
         <td><input type="number" [(ngModel)]='p.Price'></td>
         <td>{{p.Description}}</td>
+        <td>
+          <div>
+              <button class="btn btn-success" onclick="deleteItem(p)">delete</button>
+          </div>
+        </td>
+
       </tr>
     </tbody>
   </table>
-</div>
-<div class="row">
+  <div class="row">
 
-  <h5>All Items Total: {{getTotal()}}</h5>
+      <h5>All Items Total: {{getTotal()}}</h5>
+    </div>
+    <div class="row">
+        <h5 class="text-success">Current sum: {{sumSelectedItems()}} </h5>
+    </div>
 </div>
-<div class="row">
-    <h5 class="text-success">Current sum: {{sumSelectedItems()}} </h5>
-</div>
-{{logger()}}
 
+<!-- {{logger()}} -->
+<app-create-item></app-create-item>

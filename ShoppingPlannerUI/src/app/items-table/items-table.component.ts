@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { itemList } from '../item-list';
 import { Item } from '../item';
 
@@ -7,23 +7,33 @@ import { Item } from '../item';
   templateUrl: './items-table.component.html',
   styleUrls: ['./items-table.component.css']
 })
-export class ItemsTableComponent implements OnInit {
+export class ItemsTableComponent implements OnInit, OnChanges {
   
   private _checkedIndex: Array<number> = [];
+  public itemsList : itemList ;
   constructor(
-    private _list: itemList
+    elems: itemList
     ) 
   { 
+    this.itemsList = elems; 
   }
 
-  ngOnInit() {
+  ngOnChanges()
+  {
+    console.log("ngOnChanges...");
+
+  }
+
+  ngOnInit() 
+  {
+    console.log("ngOnInit...");
   }
 
   getTotal()
   {
     let _total = 0.0;
     
-    this._list.values.forEach((p)=>
+    this.itemsList.values.forEach((p)=>
     {
       _total += p.Price;
     });
@@ -34,7 +44,7 @@ export class ItemsTableComponent implements OnInit {
   {
     let _sum = 0.0;
         
-    this._list.values.forEach((p: Item) =>
+    this.itemsList.values.forEach((p: Item) =>
     {
       if(p.Checked){
         _sum += p.Price;
@@ -44,8 +54,14 @@ export class ItemsTableComponent implements OnInit {
 
   }
 
+  deleteItem(p)
+  {
+    this.itemsList.values
+    console.log(JSON.stringify(p));
+  }
+
   logger()
   {
-    console.log(JSON.stringify(this._list.values));
+    console.log(JSON.stringify(this.itemsList.values));
   }
 }

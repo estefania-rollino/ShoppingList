@@ -8,45 +8,38 @@ import { Item } from '../item';
   styleUrls: ['./items-table.component.css']
 })
 export class ItemsTableComponent implements OnInit, OnChanges {
-  
+
   private _checkedIndex: Array<number> = [];
-  public itemsList : itemList ;
+  public itemsList: itemList;
   constructor(
     elems: itemList
-    ) 
-  { 
-    this.itemsList = elems; 
+  ) {
+    this.itemsList = elems;
   }
 
-  ngOnChanges()
-  {
+  ngOnChanges() {
     console.log("ngOnChanges...");
 
   }
 
-  ngOnInit() 
-  {
+  ngOnInit() {
     console.log("ngOnInit...");
   }
 
-  getTotal()
-  {
+  getTotal() {
     let _total = 0.0;
-    
-    this.itemsList.values.forEach((p)=>
-    {
+
+    this.itemsList.values.forEach((p) => {
       _total += p.Price;
     });
     return _total.toPrecision(3);
   }
 
-  sumSelectedItems()
-  {
+  sumSelectedItems() {
     let _sum = 0.0;
-        
-    this.itemsList.values.forEach((p: Item) =>
-    {
-      if(p.Checked){
+
+    this.itemsList.values.forEach((p: Item) => {
+      if (p.Checked) {
         _sum += p.Price;
       }
     })
@@ -54,15 +47,24 @@ export class ItemsTableComponent implements OnInit, OnChanges {
 
   }
 
-  deleteItem(index: number)
-  {
+  deleteItem(index: number) {
 
     var deletedElem = this.itemsList.values.splice(index, 1);
     console.log(JSON.stringify(deletedElem));
   }
 
-  logger()
-  {
+  logger() {
     console.log(JSON.stringify(this.itemsList.values));
+  }
+
+  checkAllItemsChange(event: any) {
+    let currentElem = event.target;
+    let newState = currentElem.checked;
+    this.itemsList.values.forEach(element => {
+      element.Checked = newState;
+    });
+
+
+
   }
 }

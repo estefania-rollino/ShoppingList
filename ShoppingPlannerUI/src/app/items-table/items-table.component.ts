@@ -54,10 +54,11 @@ export class ItemsTableComponent implements OnInit, OnChanges {
 
   }
 
-  deleteItem(p)
+  deleteItem(index: number)
   {
-    this.itemsList.values
-    console.log(JSON.stringify(p));
+
+    var deletedElem = this.itemsList.values.splice(index, 1);
+    console.log(JSON.stringify(deletedElem));
   }
 
   logger()

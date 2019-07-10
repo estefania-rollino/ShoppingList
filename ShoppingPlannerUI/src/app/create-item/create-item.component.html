@@ -1,26 +1,39 @@
-<div class="container">
-  <form #addItemForm="ngForm" (ngSubmit)="submit()" class="form">
-    <div class="form-group">
-      <label for="itemLabel">Item name:</label>
-      <input id="itemNameId" #itemName="ngModel" type="text" class="form-control" [(ngModel)]="ProductName" required
-        [ngModelOptions]="{standalone: true}" aria-describedby="New item title" placeholder="Enter item name">
-      <div *ngIf="itemName.invalid && (itemName.dirty || itemName.touched)" class="alert alert-danger">
-        <div *ngIf="itemName.errors.required">
-          Name is required.
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <form #newItemForm="ngForm"  (ngSubmit)="submit()" class="form col-4  ">
+      <div class="form-group">
+        <label for="itemLabel">Item name:</label>
+        <input id="itemNameId" #itemName="ngModel" type="text" class="form-control" [(ngModel)]="Item.ProductName" required
+          [ngModelOptions]="{standalone: true}" aria-describedby="New item title" placeholder="Enter item name">
+        <div *ngIf="itemName.invalid && (itemName.dirty || itemName.touched)" class="alert alert-danger my-1">
+          <div *ngIf="itemName.errors.required">
+            A item name is required.
+          </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div class="form-group">
-        <label for="PriceLabel">Price:</label>
-        <input type="number" [(ngModel)]="Price" [ngModelOptions]="{standalone:true}" class="form-control"
-          id="PriceInput" aria-describedby="Price value" placeholder="Enter price value">
-      </div>
-    </div>
-    <div>
-      <button class="btn btn-success" type="submit"  [disabled]="!addItemForm.form.valid"> add new item</button>
-    </div>
+      <div>
+        <div class="form-group">
+          <label for="PriceLabel">Price:</label>
+          <input #priceItem="ngModel" type="number" [(ngModel)]="Item.Price" [ngModelOptions]="{standalone:true}"
+            class="form-control" id="PriceInput" aria-describedby="Price value" placeholder="Enter price value" required
+            min="0">
 
-  </form>
-  <h5></h5>
+          <div class="alert alert-danger my-1" *ngIf="priceItem.invalid && (priceItem.dirty || priceItem.touched)">
+            <div *ngIf="priceItem.errors.required" class="">
+              Price is required
+            </div>
+            <div *ngIf="priceItem.errors.minlenght" class="">
+              must be mayor than zero
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="btn btn-block btn-success" type="submit" [disabled]="(itemName.invalid || priceItem.invalid)"> add new item</button>
+      </div>
+
+    </form>
+
+  </div>
 </div>

@@ -9,6 +9,13 @@
     <button class="btn" type="button">
       <span class="fa fa-floppy-o" id="savebtn"></span>
     </button>
+    <input id="uploadFileId" type="file" accept="application/json" (change)="onChange($event)"  >
+    <button class="btn btn-outline-primary btn-sm mx-1" type="button" (click)="importList()">
+      Import
+    </button>
+    <button class="btn btn-outline-primary btn-sm mx-1" type="button" (click)="exportList()">
+        Export
+      </button>
   </div>
 
 </nav>

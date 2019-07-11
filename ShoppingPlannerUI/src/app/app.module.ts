@@ -8,7 +8,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ItemsTableComponent } from './items-table/items-table.component';
 import { CreateItemComponent } from './create-item/create-item.component';
 import { itemList } from './item-list';
-import { Item } from './item';
+//import {FileSaver} from 'file-saver';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { Item } from './item';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    //FileSaver
 
   ],
   providers: [

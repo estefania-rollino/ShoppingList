@@ -4,7 +4,6 @@ import { Item } from './item';
 @Injectable()
 export class itemList 
 {
-    test: string = "";
     values: Array<Item> = [];
     constructor()
     {

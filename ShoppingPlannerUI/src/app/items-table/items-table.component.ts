@@ -9,12 +9,9 @@ import { Item } from '../item';
 })
 export class ItemsTableComponent implements OnInit, OnChanges {
 
-  private _checkedIndex: Array<number> = [];
-  //public itemsList: itemList;
   constructor(
     private itemsList: itemList
   ) {
-    //this.itemsList = elems;
   }
 
   ngOnChanges() {

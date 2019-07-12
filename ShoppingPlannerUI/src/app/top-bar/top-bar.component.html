@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-dark bg-dark">
   <a [routerLink]="['home']" class="navbar-brand">Shopping List</a>
   <div class="btn-toolbar" id="toolbar">
     <a [routerLink]="['item/add']" class="navbar-brand">
@@ -6,16 +6,14 @@
         <span class="fa fa-plus-circle" id="addbtn"></span>
       </button>
     </a>
-    <button class="btn" type="button">
+    <button class="btn" type="button" (click)="exportList()">
       <span class="fa fa-floppy-o" id="savebtn"></span>
     </button>
-    <input id="uploadFileId" type="file" accept="application/json" (change)="onChange($event)"  >
-    <button class="btn btn-outline-primary btn-sm mx-1" type="button" (click)="importList()">
-      Import
+    <input hidden #uploadFileInput id="uploadFileId" type="file" accept="application/json" (change)="onChange($event)"  >
+    <button class="btn  mx-1" type="button" (click)="uploadFileInput.click()">
+      <span class="fa fa-upload" ></span>
     </button>
-    <button class="btn btn-outline-primary btn-sm mx-1" type="button" (click)="exportList()">
-        Export
-      </button>
+    
   </div>
 
 </nav>

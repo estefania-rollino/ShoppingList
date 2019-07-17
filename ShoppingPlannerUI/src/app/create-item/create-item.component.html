@@ -1,6 +1,6 @@
-<div class="container my-5">
+<div class="container my-5" id="containerCreateItem">
   <div class="row justify-content-center">
-    <form #newItemForm="ngForm"  (ngSubmit)="submit()" class="form col-4  ">
+    <form #newItemForm="ngForm"  (ngSubmit)="submit()" class="form col-md-4  ">
       <div class="form-group">
         <label for="itemLabel">Item name:</label>
         <input id="itemNameId" #itemName="ngModel" type="text" class="form-control" [(ngModel)]="Item.ProductName" required
@@ -29,8 +29,11 @@
         </div>
       </div>
 
-      <div>
-        <button class="btn btn-block btn-success" type="submit" [disabled]="(itemName.invalid || priceItem.invalid)"> add new item</button>
+      <div class="container" id="confirmBtn">
+          <button class="btn btn-block btn-success " type="submit" [disabled]="(itemName.invalid || priceItem.invalid)"> 
+            <span class="fa fa-check-circle" style="font-size: 2rem"></span>
+          </button>
+        
       </div>
 
     </form>
